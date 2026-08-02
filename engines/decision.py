@@ -1,12 +1,14 @@
-class DecisionEngine:
-    def decide(self, market):
-        trend = market.get("trend", "UNKNOWN")
-        volatility = market.get("volatility", 0)
 
-        if trend == "UP" and volatility < 0.03:
+class DecisionEngine:
+
+    def decide(self, research):
+
+        score = research.get("score", 0.0)
+
+        if score >= 0.50:
             return "BUY"
 
-        if trend == "DOWN":
+        if score <= -0.50:
             return "SELL"
 
         return "HOLD"
