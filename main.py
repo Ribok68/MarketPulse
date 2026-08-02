@@ -10,13 +10,12 @@ market = {
 
 
 pipeline = MarketPulsePipeline()
-
 result = pipeline.run(market)
 
 
 print()
 print("========================================")
-print("        MARKETPULSE V4")
+print("        MARKETPULSE V4.1")
 print("========================================")
 
 print("ENVIRONMENT:")
@@ -27,6 +26,10 @@ print("RESEARCH:")
 print(result["research"])
 
 print()
+print("RISK:")
+print(result["risk"])
+
+print()
 print("DECISION:")
 print(result["decision"])
 
@@ -34,4 +37,5 @@ print()
 print("MEMORY:")
 print(result["memory"])
 
+print()
 print("========================================")
