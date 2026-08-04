@@ -1,47 +1,62 @@
 
 from engines.pipeline import MarketPulsePipeline
 
-
 market = {
     "trend": "UP",
     "volatility": 0.021,
     "momentum": 0.75
 }
 
-
 pipeline = MarketPulsePipeline()
-
-result = pipeline.run(market)
-
 
 print()
 print("========================================")
-print("        MARKETPULSE V4.2")
+print("        MARKETPULSE V4.3")
 print("========================================")
+
+# Analyse
+analysis = pipeline.run(market)
 
 print()
 print("ENVIRONMENT:")
-print(result["environment"])
+print(analysis["environment"])
 
 print()
 print("RESEARCH:")
-print(result["research"])
+print(analysis["research"])
 
 print()
 print("RISK:")
-print(result["risk"])
-
-print()
-print("LEARNING WEIGHTS:")
-print(result["learning_weights"])
+print(analysis["risk"])
 
 print()
 print("DECISION:")
-print(result["decision"])
+print(analysis["decision"])
+
+print()
+print("INITIAL WEIGHTS:")
+print(analysis["learning_weights"])
+
+# Simuleer een echte trade-uitkomst
+trade_result = 1.0
+
+# Feedback verwerken
+updated = pipeline.run(
+    market,
+    result=trade_result
+)
+
+print()
+print("FEEDBACK:")
+print(updated["feedback"])
+
+print()
+print("UPDATED WEIGHTS:")
+print(updated["learning_weights"])
 
 print()
 print("MEMORY:")
-print(result["memory"])
+print(updated["memory"])
 
 print()
 print("========================================")
